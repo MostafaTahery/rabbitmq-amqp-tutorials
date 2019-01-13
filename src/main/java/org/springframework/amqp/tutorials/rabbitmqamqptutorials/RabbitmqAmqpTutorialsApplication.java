@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class RabbitmqAmqpTutorialsApplication {
 
 
-    @Profile("usage_message")
+    //@Profile("usage_message")
 	@Bean
 	public CommandLineRunner usage(){
 		return args -> {
@@ -23,7 +23,7 @@ public class RabbitmqAmqpTutorialsApplication {
 		};
 	}
 
-	@Profile("!usage_message")
+	//@Profile("!usage_message")
 	@Bean
 	public CommandLineRunner tutorial(){
 		return new RabbitAmqpTutorialsRunner();

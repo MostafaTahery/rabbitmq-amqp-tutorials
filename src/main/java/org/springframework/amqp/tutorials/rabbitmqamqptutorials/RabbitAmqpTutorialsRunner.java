@@ -1,13 +1,13 @@
 package org.springframework.amqp.tutorials.rabbitmqamqptutorials;
 
-import org.springframework.amqp.tutorials.rabbitmqamqptutorials.tut1.Tut1Sender;
+import org.springframework.amqp.tutorials.rabbitmqamqptutorials.tut2.Tut2Sender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
-//@ComponentScan({""})
+
 public class RabbitAmqpTutorialsRunner implements CommandLineRunner {
 
     @Value("${tutorial.client.duration:0}")
@@ -16,8 +16,12 @@ public class RabbitAmqpTutorialsRunner implements CommandLineRunner {
     @Autowired
     private ConfigurableApplicationContext ctx;
 
+
+    //@Autowired
+    //private Tut1Sender sender;
+
     @Autowired
-    private Tut1Sender sender;
+    private Tut2Sender sender;
 
     @Override
     public void run(String... arg0) throws Exception{
@@ -26,4 +30,5 @@ public class RabbitAmqpTutorialsRunner implements CommandLineRunner {
         Thread.sleep(duration);
         ctx.close();
     }
+
 }
